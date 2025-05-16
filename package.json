@@ -1,0 +1,101 @@
+{
+  "name": "multi-lsp-extension",
+  "displayName": "Multi Language Server Extension",
+  "description": "VSCode Extension with Multiple Language Servers in Python",
+  "version": "0.1.0",
+  "publisher": "SoverX",
+  "author": {
+    "name": "Дмитрий Шевченко (SoverX)",
+    "url": "https://github.com/soverxos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soverxos/multi-lsp-extension.git"
+  },
+  "homepage": "https://github.com/soverxos/multi-lsp-extension",
+  "bugs": {
+    "url": "https://github.com/soverxos/multi-lsp-extension/issues"
+  },
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:css",
+    "onLanguage:json"
+  ],
+  "main": "./client/out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Multi Language Server",
+      "properties": {
+        "multiLanguageServer.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Включить/отключить языковой сервер"
+        },
+        "multiLanguageServer.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Путь к интерпретатору Python (если оставить пустым, будет использоваться значение из настроек Python или системный Python)"
+        },
+        "multiLanguageServer.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Трассировка коммуникации между VS Code и языковым сервером"
+        },
+        "multiLanguageServer.html.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Включить/отключить поддержку HTML"
+        },
+        "multiLanguageServer.css.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Включить/отключить поддержку CSS"
+        },
+        "multiLanguageServer.json.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Включить/отключить поддержку JSON"
+        },
+        "multiLanguageServer.notifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Показывать уведомления при открытии документов"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "multiLanguageServer.restart",
+        "title": "Многоязычный сервер: Перезапустить сервер",
+        "category": "Multi Language Server"
+      },
+      {
+        "command": "multiLanguageServer.showOutput",
+        "title": "Многоязычный сервер: Показать вывод сервера",
+        "category": "Multi Language Server"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "cd client && npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "typescript": "^4.9.4"
+  }
+}

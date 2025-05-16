@@ -1,0 +1,38 @@
+/* Тестовый CSS файл для проверки автодополнения */
+
+body {
+    /* Попробуйте ввести свойство и нажать Ctrl+Space здесь */
+    
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    /* Введите любую букву и нажмите Ctrl+Space для списка свойств */
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #4a76a8;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    min-height: 400px;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.container { }
